@@ -1,0 +1,29 @@
+/*Colors*/
+$lemon: #caccb5;
+$gray: #231f20;
+$light-gray:#c0bdbb;
+$mid-gray:#8c8887;
+$beige: #ede9e7;
+$red: #cc1631;
+$white:white;
+
+/*Font Size*/
+$nav-size:1.5rem;
+$main-title-size:7.5rem;
+$box-title-size:1.5rem;
+
+/*Extends*/
+%top-nav-link {
+  color: $gray;
+  font-size: $nav-size;
+  font-weight: 300;
+  text-transform: capitalize;
+  text-decoration: none;
+}
+%box-title {
+  color: $gray;
+  letter-spacing: 0.25rem;
+  font-size: 2.4rem;
+  font-weight: bold;
+  text-transform: uppercase;
+} 

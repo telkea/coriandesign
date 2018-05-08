@@ -1,0 +1,458 @@
+@import 'normalize';
+@import 'variables';
+@import 'font';
+@import 'vendors';
+@import 'responsive';
+@import 'ie-fix';
+
+html {
+  color: #222;
+  font-size: 1em;
+  line-height: 1.4;
+}
+
+::-moz-selection {
+  background: #b3d4fc;
+  text-shadow: none;
+}
+
+::selection {
+  background: #b3d4fc;
+  text-shadow: none;
+}
+
+hr {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid #ccc;
+  margin: 1em 0;
+  padding: 0;
+}
+
+audio,
+canvas,
+iframe,
+img,
+svg,
+video {
+  vertical-align: middle;
+}
+
+fieldset {
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+
+textarea {
+  resize: vertical;
+}
+
+/* ==========================================================================
+   Browser Upgrade Prompt
+   ========================================================================== */
+
+.browserupgrade {
+  margin: 0.2em 0;
+  background: #ccc;
+  color: #000;
+  padding: 0.2em 0;
+}
+
+/* ==========================================================================
+   Mixins
+   ========================================================================== */
+@mixin flex($jc,$ai) {
+  display: flex;
+  justify-content: $jc;
+  align-items: $ai;
+}
+
+@mixin grid($gap, $jc, $ai) {
+  display: grid;
+  grid-gap: $gap;
+}
+
+@mixin ease($time,$delay,$ease) {
+  transition: all $time $delay $ease;
+}
+
+/* ==========================================================================
+   Author's custom styles
+   ========================================================================== */
+*, *:after, *:before {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: 'Radikal';
+  font-weight: 300;
+  font-size: 1.6rem;
+  color: $gray;
+  background-color: $light-gray;
+}
+
+header.navigation {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  &:after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background-color: $white;
+    transform: translateY(-100%);
+    @include ease(200ms, 0s, ease-in-out)
+  }
+  &.active:after {
+    transform: translateY(0);
+  }
+}
+
+.center1366px {
+  width: 100%;
+  max-width: 1366px;
+  margin: 0 auto;
+  padding: 1.875rem;
+  position: relative;
+}
+
+/*HEADER NAVIGATION*/
+.navigation-items {
+  @include flex(flex-start, center);
+  & a {
+    @extend %top-nav-link;
+    text-align: center;
+    margin: 0 1.5rem;
+    display: inline-block;
+    position: relative;
+    &:after {
+      @include ease(250ms, 0s, ease-in-out);
+      content: '';
+      display: block;
+      width: 0;
+      height: 1px;
+      background-color: $gray;
+      position: absolute;
+      bottom: -5px;
+      left: 50%;
+    }
+    html.no-touch &:hover:after {
+      width: 100%;
+      left: 0;
+    }
+  }
+  & .navigation-items__space {
+    flex: 1;
+  }
+  & .navigation-items__logo {
+    flex-basis: 100px
+  }
+  & .navigation-items__retailer {
+    position: relative;
+    & .navigation-items__retailer__title {
+      @include flex(center, center);
+      cursor: pointer;
+      min-width: 170px;
+      span {
+        @include ease(200ms, 0ms, ease-in-out);
+        flex-basis: auto;
+        text-align: center;
+      }
+      span.active {
+        transform: rotate(.25turn);
+      }
+      span:before {
+        font-size: 1rem;
+      }
+    }
+    & .navigation-items__retailer__subnav {
+      position: absolute;
+      top: 30px;
+      left: 0;
+      width: calc(100% + 4rem);
+      padding-bottom: 2rem;
+      & .item {
+        position: relative;
+        left: 20px;
+        top: 10px;
+        line-height: 2;
+        &:before, &:after {
+          content: '';
+          position: absolute;
+          background-color: $mid-gray;
+          left: 0;
+        }
+        &:before {
+          top: -15px;
+          width: 2px;
+          height: 100%;
+        }
+        &:after {
+          bottom: 15px;
+          width: 10px;
+          height: 2px;
+        }
+        a {
+          padding: 0;
+          position: relative;
+          margin-left: 2rem;
+          margin-right: 0;
+        }
+      }
+    }
+    .navigation.active & .navigation-items__retailer__subnav {
+      background-color: $white;
+    }
+  }
+  & .navigation-items__social {
+    @include flex(space-around, center);
+    max-width: 200px;
+    & a {
+      color: $gray;
+      padding: 0 .75rem;
+      margin: 0;
+      display: block;
+      text-align: center;
+    }
+    & span:before {
+      font-size: 2.5rem;
+    }
+  }
+}
+
+/*HEADER BACKGROUND*/
+header.background {
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 80%;
+  background-color: $lemon;
+  .header-background__wrapper {
+    overflow: hidden;
+    position: relative;
+    height: 100%;
+    width: 100%;
+    .header-background__wrapper__title {
+      position: absolute;
+      left: 0;
+      top: 170px;
+      z-index: 3;
+      & > span {
+        font-size: $main-title-size;
+        display: block;
+        line-height: 1;
+        font-weight: 200;
+      }
+    }
+    .header-background__vectorized-picture {
+      position: absolute;
+      left: 0;
+      top: -11%;
+      z-index: 1;
+    }
+    .header-background__sliced-picture {
+      position: absolute;
+      z-index: 2;
+      right: 0;
+      top: 110px;
+    }
+  }
+}
+
+/*SECTIONS*/
+section.sections {
+  position: relative;
+  top: 500px;
+  .sections__wrapper {
+    background-color: $beige;
+    width: 100%;
+    min-height: 600px;
+  }
+}
+
+/* ==========================================================================
+   Helper classes
+   ========================================================================== */
+
+/*
+ * Hide visually and from screen readers
+ */
+
+.hidden {
+  display: none !important;
+}
+
+/*
+ * Hide only visually, but have it available for screen readers:
+ * https://snook.ca/archives/html_and_css/hiding-content-for-accessibility
+ *
+ * 1. For long content, line feeds are not interpreted as spaces and small width
+ *    causes content to wrap 1 word per line:
+ *    https://medium.com/@jessebeach/beware-smushed-off-screen-accessible-text-5952a4c2cbfe
+ */
+
+.visuallyhidden {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+  white-space: nowrap; /* 1 */
+}
+
+/*
+ * Extends the .visuallyhidden class to allow the element
+ * to be focusable when navigated to via the keyboard:
+ * https://www.drupal.org/node/897638
+ */
+
+.visuallyhidden.focusable:active,
+.visuallyhidden.focusable:focus {
+  clip: auto;
+  height: auto;
+  margin: 0;
+  overflow: visible;
+  position: static;
+  width: auto;
+  white-space: inherit;
+}
+
+/*
+ * Hide visually and from screen readers, but maintain layout
+ */
+
+.invisible {
+  visibility: hidden;
+}
+
+/*
+ * Clearfix: contain floats
+ *
+ * For modern browsers
+ * 1. The space content is one way to avoid an Opera bug when the
+ *    `contenteditable` attribute is included anywhere else in the document.
+ *    Otherwise it causes space to appear at the top and bottom of elements
+ *    that receive the `clearfix` class.
+ * 2. The use of `table` rather than `block` is only necessary if using
+ *    `:before` to contain the top-margins of child elements.
+ */
+
+.clearfix:before,
+.clearfix:after {
+  content: " "; /* 1 */
+  display: table; /* 2 */
+}
+
+.clearfix:after {
+  clear: both;
+}
+
+/* ==========================================================================
+   EXAMPLE Media Queries for Responsive Design.
+   These examples override the primary ('mobile first') styles.
+   Modify as content requires.
+   ========================================================================== */
+
+@media only screen and (min-width: 35em) {
+  /* Style adjustments for viewports that meet the condition */
+}
+
+@media print,
+(-webkit-min-device-pixel-ratio: 1.25),
+(min-resolution: 1.25dppx),
+(min-resolution: 120dpi) {
+  /* Style adjustments for high resolution devices */
+}
+
+/* ==========================================================================
+   Print styles.
+   Inlined to avoid the additional HTTP request:
+   https://www.phpied.com/delay-loading-your-print-css/
+   ========================================================================== */
+
+@media print {
+  *,
+  *:before,
+  *:after {
+    background: transparent !important;
+    color: #000 !important; /* Black prints faster */
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+
+  a,
+  a:visited {
+    text-decoration: underline;
+  }
+
+  a[href]:after {
+    content: " (" attr(href) ")";
+  }
+
+  abbr[title]:after {
+    content: " (" attr(title) ")";
+  }
+
+  /*
+   * Don't show links that are fragment identifiers,
+   * or use the `javascript:` pseudo protocol
+   */
+
+  a[href^="#"]:after,
+  a[href^="javascript:"]:after {
+    content: "";
+  }
+
+  pre {
+    white-space: pre-wrap !important;
+  }
+  pre,
+  blockquote {
+    border: 1px solid #999;
+    page-break-inside: avoid;
+  }
+
+  /*
+   * Printing Tables:
+   * http://css-discuss.incutio.com/wiki/Printing_Tables
+   */
+
+  thead {
+    display: table-header-group;
+  }
+
+  tr,
+  img {
+    page-break-inside: avoid;
+  }
+
+  p,
+  h2,
+  h3 {
+    orphans: 3;
+    widows: 3;
+  }
+
+  h2,
+  h3 {
+    page-break-after: avoid;
+  }
+}

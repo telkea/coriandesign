@@ -1,0 +1,32 @@
+<div class="center1366px">
+    <div class="navigation-items">
+        <div class="navigation-items__logo"><img src="img/logocorian.svg" alt="CorianDesign" width="66" height="50">
+        </div>
+        <a href="javascript:void(0)" data-nav-item="featured_colors">Featured Colors</a>
+        <a href="javascript:void(0)" data-nav-item="inspiration">Inspiration</a>
+        <a href="javascript:void(0)" data-nav-item="innovation">Innovation</a>
+        <a href="javascript:void(0)" data-nav-item="our_materials">Our Materials</a>
+        <a href="javascript:void(0)" data-nav-item="whats_new">What’s New</a>
+        <div class="navigation-items__space"></div>
+        <a href="javascript:void(0)" data-nav-item="order_a_sample">Order a Sample</a>
+        <div class="navigation-items__retailer" @click="button.findRetailerClicked = !button.findRetailerClicked">
+            <div class="navigation-items__retailer__title">
+                <span class="icon-font-05-arrow-right-black" :class="{active:button.findRetailerClicked}"></span>
+                <a href="javascript:void(0)">Find a Retailer</a>
+            </div>
+            <div class="navigation-items__retailer__subnav" v-if="button.findRetailerClicked">
+                <div class="item">
+                    <a href="http://www.corian.com">Corian<sup>®</sup> Solid Surface</a>
+                </div>
+                <div class="item">
+                    <a href="http://www.corianquartz.com">Corian<sup>®</sup> Quartz</a>
+                </div>
+            </div>
+        </div>
+        <div class="navigation-items__social">
+            <a href=""><span class="icon-font-02-social-fb"></span></a>
+            <a href=""><span class="icon-font-03-social-tt"></span></a>
+            <a href=""><span class="icon-font-04-social-ig"></span></a>
+        </div>
+    </div>
+</div>

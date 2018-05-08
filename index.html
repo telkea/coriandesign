@@ -1,0 +1,50 @@
+<!doctype html>
+<html class="no-js" lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>DuPont Corian® Design </title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="manifest" href="site.webmanifest">
+    <link rel="apple-touch-icon" href="icon.png">
+</head>
+
+<body>
+<div class="VueJsElement">
+    <!--[if lte IE 9]>
+    <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a
+            href="https://browsehappy.com/">upgrade
+        your browser</a> to improve your experience and security.</p>
+    <![endif]-->
+
+    <header class="navigation" :class="{active:headerNavActive}">
+        @@include('./includes/navigation.html')
+    </header>
+    <header class="background">
+        @@include('./includes/section-header.html')
+        @@include('./includes/header-background.html')
+    </header>
+    <section class="sections">
+        <div class="center1366px">
+            <div class="sections__wrapper">
+
+            </div>
+        </div>
+        <!-- /.main -->
+    </section>
+    <!-- /.sections -->
+</div>
+<!-- inject:js -->
+<script src="js/vendor/vue.js"></script>
+<script src="js/vendor/TweenLite.min.js"></script>
+<script src="js/vendor/CSSPlugin.min.js"></script>
+<script src="js/vendor/ScrollToPlugin.min.js"></script>
+<script src="js/vendor/jquery-3.3.1.min.js"></script>
+<script src="js/vendor/slick.min.js"></script>
+<script src="js/plugins.js"></script>
+<script src="js/main.js"></script>
+<!-- endinject -->
+
+</body>
+</html>

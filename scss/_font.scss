@@ -1,0 +1,56 @@
+@font-face {
+  font-family: 'Radikal';
+  src: url('../font/Radikal-Thin.woff2') format('woff2'),
+  url('../font/Radikal-Thin.woff') format('woff');
+  font-weight: 100;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Radikal';
+  src: url('../font/Radikal-Light.woff2') format('woff2'),
+  url('../font/Radikal-Light.woff') format('woff');
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Radikal';
+  src: url('../font/Radikal-Medium.woff2') format('woff2'),
+  url('../font/Radikal-Medium.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Radikal';
+  src: url('../font/Radikal-Bold.woff2') format('woff2'),
+  url('../font/Radikal-Bold.woff') format('woff');
+  font-weight: bold;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Glyphter';
+  src: url('../font/Glyphter.eot');
+  src: url('../font/Glyphter.eot?#iefix') format('embedded-opentype'),
+  url('../font/Glyphter.woff') format('woff'),
+  url('../font/Glyphter.ttf') format('truetype'),
+  url('../font/Glyphter.svg#Glyphter') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+[class*='icon-']:before{
+  display: inline-block;
+  font-family: 'Glyphter';
+  font-style: normal;
+  font-weight: normal;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale
+}
+.icon-font-01-logocorian:before{content:'\0041';}
+.icon-font-02-social-fb:before{content:'\0042';}
+.icon-font-03-social-tt:before{content:'\0043';}
+.icon-font-04-social-ig:before{content:'\0044';}
+.icon-font-05-arrow-right-black:before{content:'\0045';}
+.icon-font-06-arrow-right-gray:before{content:'\0046';}
